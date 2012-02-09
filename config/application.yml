@@ -1,8 +1,8 @@
 development:
-  interval: "1m"
+  interval: "5m"
 
 test:
-  interval: "1m"
+  interval: "5m"
 
 production:
   interval: "5m"
