@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.0'
+gem 'twitter-bootstrap-rails'
 gem 'bson_ext'
 gem 'mongoid'
 
-# Gems used only for assets and not required
-# in production environments by default.
+gem 'resque'
+gem 'resque-scheduler'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -13,11 +15,17 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+end
+
+group :development do
+  gem 'vagrant'
+  gem 'guard'
+  gem 'guard-rails'
+  gem 'guard-rspec'
+end
+
 gem 'jquery-rails'
 # gem 'jbuilder'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
