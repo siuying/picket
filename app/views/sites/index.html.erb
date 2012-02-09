@@ -9,7 +9,7 @@
   </tr>
 <% @sites.each do |site| %>
   <tr>
-    <td><%= icons_for_site(site)%> <%= site.url %></td>
+    <td><%= icon_for_site(site)%> <%= message_for_site(site) %></td>
     <td><%= link_to 'Show', site %></td>
     <td><%= link_to 'Edit', edit_site_path(site) %></td>
     <td><%= link_to 'Destroy', site, confirm: 'Are you sure?', method: :delete %></td>

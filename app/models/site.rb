@@ -9,6 +9,6 @@ class Site
   field :url, :type => String
   field :status, :type => String, :default => "ok"
   field :message, :type => String
-  field :last_error_at, :type => DateTime
+  field :status_change_at, :type => DateTime
 
 end
