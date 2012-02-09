@@ -7,6 +7,7 @@ gem 'bson_ext'
 gem 'mongoid'
 gem 'settingslogic'
 gem 'rufus-scheduler'
+gem 'devise'
 
 gem 'resque'
 gem 'thin'
