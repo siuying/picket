@@ -1,0 +1,25 @@
+<h1>All sites</h1>
+
+<table class="table">
+  <tr>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @sites.each do |site| %>
+  <tr>
+    <td><%= icons_for_site(site)%> <%= site.url %></td>
+    <td><%= link_to 'Show', site %></td>
+    <td><%= link_to 'Edit', edit_site_path(site) %></td>
+    <td><%= link_to 'Destroy', site, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<% content_for :sidebar do %>
+<div class="well sidebar-nav">
+  <h3>Actions</h3>
+  <%= link_to 'New Site', new_site_path %>
+</div>
+<% end %>
