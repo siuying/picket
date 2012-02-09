@@ -4,7 +4,6 @@
 
 require File.expand_path('../config/application', __FILE__)
 require 'resque/tasks'
-require 'resque_scheduler/tasks'
 
 Picket::Application.load_tasks
 

@@ -7,7 +7,6 @@ gem 'bson_ext'
 gem 'mongoid'
 
 gem 'resque'
-gem 'resque-scheduler'
 gem 'thin'
 gem 'foreman'
 gem "typhoeus"

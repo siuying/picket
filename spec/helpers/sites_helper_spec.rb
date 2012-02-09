@@ -23,5 +23,13 @@ describe SitesHelper do
       message.should == "ignition.hk is down since 3 minutes ago"
     end
     
+    it "should return correct message for UNKNOWN site" do
+      site = stub(:site)
+      site.stub(:url => "http://ignition.hk", :status => "unknown")
+
+      message = SitesHelperSpec::message_for_site(site)
+      message.should == "ignition.hk will be watched within 5 minutes"
+    end
+    
   end
 end

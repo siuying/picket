@@ -1,6 +1,0 @@
-fetching:
-  every: 5m
-  class: SiteFetcher
-  queue: fetch
-  args: 
-  description: "This job fetch web sites scheduled"
