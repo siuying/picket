@@ -1,25 +1,22 @@
-<h1>All sites</h1>
+<div>
+  <a class="btn btn-primary" id="action-btn" href="#">
+    <i class="icon-plus-sign icon-white"></i>
+    Add
+  </a>
+  <h1>All sites</h1>
+</div>
 
 <table class="table">
   <tr>
     <th>Url</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 <% @sites.each do |site| %>
   <tr>
     <td><%= icon_for_site(site)%> <%= message_for_site(site) %></td>
-    <td><%= link_to 'Show', site %></td>
     <td><%= link_to 'Edit', edit_site_path(site) %></td>
     <td><%= link_to 'Destroy', site, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<% content_for :sidebar do %>
-<div class="well sidebar-nav">
-  <h3>Actions</h3>
-  <%= link_to 'New Site', new_site_path %>
-</div>
-<% end %>

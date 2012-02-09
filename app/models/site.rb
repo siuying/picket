@@ -8,6 +8,7 @@ class Site
   STATUS = [STATUS_UNKNOWN, STATUS_OK, STATUS_FAILED]
 
   field :url, :type => String
+
   field :status, :type => String, :default => STATUS_UNKNOWN
   field :message, :type => String, :default => ""
   field :status_change_at, :type => DateTime
