@@ -1,5 +1,3 @@
-require 'resque/server'
-
 Picket::Application.routes.draw do
   get "/profile" => 'user#index'
   post "/profile" => 'user#update'
