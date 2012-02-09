@@ -1,0 +1,13 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+      <div class="container">
+      <a class="brand" href="#">Picket</a>
+      <div class="container nav-collapse">
+        <ul class="nav pull-right">
+          <li><%= link_to "Profile", profile_path %></li>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,3 +11,6 @@ jQuery ->
   $(".tooltip").tooltip()
   $(".typeahead").typeahead()
   $("a[rel=tooltip]").tooltip()
+  $(".alert .close").click (e) ->
+    $(e.currentTarget).parent().hide()
+    return false
