@@ -1,6 +1,7 @@
 class Site
   include Mongoid::Document
-  
+  include Mongoid::Timestamps
+    
   STATUS_OK = "ok"
   STATUS_FAILED = "failed"
   STATUS = [STATUS_OK, STATUS_FAILED]

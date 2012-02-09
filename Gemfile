@@ -8,6 +8,9 @@ gem 'mongoid'
 
 gem 'resque'
 gem 'resque-scheduler'
+gem 'thin'
+gem 'foreman'
+gem "typhoeus"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
