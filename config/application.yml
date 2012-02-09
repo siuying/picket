@@ -1,8 +1,11 @@
 development:
   interval: "5m"
+  redis: "localhost:6379"
 
 test:
   interval: "5m"
+  redis: "localhost:6379"
 
 production:
   interval: "5m"
+  redis: <%= ENV['REDIS_URL'] %>
