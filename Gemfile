@@ -5,11 +5,13 @@ gem 'twitter-bootstrap-rails'
 gem 'simple_form'
 gem 'bson_ext'
 gem 'mongoid'
+gem 'settingslogic'
+gem 'rufus-scheduler'
 
 gem 'resque'
 gem 'thin'
 gem 'foreman'
-gem "typhoeus"
+gem 'typhoeus'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

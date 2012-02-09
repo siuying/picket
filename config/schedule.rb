@@ -2,7 +2,7 @@ require 'rufus-scheduler'
 
 scheduler = Rufus::Scheduler.start_new
 
-scheduler.every '1m', :first => '5s' do
+scheduler.every Settings.interval do
   Resque.enqueue(AllSitesFetcher)
 end
 
