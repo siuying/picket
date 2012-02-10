@@ -2,7 +2,7 @@ module SitesHelper
   include ActionView::Helpers::DateHelper 
 
   def icon_for_site(site)
-    case site.status
+    case site.state
     when "unknown"
       image_tag("icons/help.png")
     when "ok"

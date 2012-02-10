@@ -6,7 +6,7 @@ class Site
   include ActiveRecord::Transitions
   
   field :url, :type => String
-  field :state, :type => String
+  field :state, :type => String, :default => "unknown"
   field :message, :type => String, :default => ""
 
   field :ok_at, :type => DateTime
