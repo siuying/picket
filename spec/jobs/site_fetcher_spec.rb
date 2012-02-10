@@ -1,25 +1,23 @@
 require 'spec_helper'
 
 describe SiteFetcher do
-  context "Fetcher should send email" do
+  context "Fetcher Email Notifications" do
     before(:each) do
-      @site = Site.create!(:url => "http://google.com", 
-        :status => Site::STATUS_OK,
-        :status_changed_at => 3.minutes.ago)
       @response = double(:response)
       SitesMailer = double(:sites_mailer).as_null_object
       SiteFetcher.stub(:get_url).and_return(@response)     
     end
     
-    it "should not send email when status is ok and no change" do
+    it "should not send when status is ok and no change" do
+      @site = FactoryGirl.create(:ok_site)
       @response.stub(:success?).and_return(true)
       SitesMailer.should_not_receive(:notify_error).should_not_receive(:notify_resolved)
 
       SiteFetcher.perform(@site.id)
     end
 
-    it "should send email when status is change from ok to fail" do
-      @site.update_attribute :status, Site::STATUS_OK
+    it "should send when status is change from ok to fail" do
+      @site = FactoryGirl.create(:ok_site)
       @response.stub(:success? => false, :timed_out? => false, :code => 404, :status_message => "Not found")
       SitesMailer.should_receive(:notify_error).and_return(stub(:mailer, :deliver => true))
       SitesMailer.should_not_receive(:notify_resolved)
@@ -27,8 +25,8 @@ describe SiteFetcher do
       SiteFetcher.perform(@site.id)
     end
     
-    it "should send email when status is change from fail to ok" do
-      @site.update_attribute :status, Site::STATUS_FAILED
+    it "should send when status is change from fail to ok" do
+      @site = FactoryGirl.create(:failed_site)
       @response.stub(:success?).and_return(true) 
       SitesMailer.should_receive(:notify_resolved).and_return(stub(:mailer, :deliver => true))
       SitesMailer.should_not_receive(:notify_error)
@@ -36,8 +34,8 @@ describe SiteFetcher do
       SiteFetcher.perform(@site.id)
     end
 
-    it "should not send email when status is change from unknown to ok" do
-      @site.update_attribute :status, Site::STATUS_UNKNOWN
+    it "should not email when status is change from unknown to ok" do
+      @site = FactoryGirl.create(:site)
       @response.stub(:success?).and_return(true) 
       SitesMailer.should_not_receive(:notify_resolved).and_return(stub(:mailer, :deliver => true))
       SitesMailer.should_not_receive(:notify_error)
@@ -45,8 +43,8 @@ describe SiteFetcher do
       SiteFetcher.perform(@site.id)
     end
 
-    it "should send email when status is change from unknown to fail" do
-      @site.update_attribute :status, Site::STATUS_UNKNOWN
+    it "should send when status is change from unknown to fail" do
+      @site = FactoryGirl.create(:site)
       @response.stub(:success? => false, :timed_out? => false, :code => 404, :status_message => "Not found")
       SitesMailer.should_receive(:notify_error).and_return(stub(:mailer, :deliver => true))
       SitesMailer.should_not_receive(:notify_resolved)

@@ -15,9 +15,7 @@ class Site
   
   validates_presence_of :url
   validates_format_of :url, :with => %r{^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$}
-  
-  before_save :update_status
-  
+
   def ok?
     status == STATUS_OK
   end
@@ -25,12 +23,10 @@ class Site
   def failed?
     status == STATUS_FAILED
   end
-  
-  protected
-  def update_status
-    if url_changed?
-      self.status           = STATUS_UNKNOWN
-      self.status_changed_at = Time.now
-    end
+
+  # Reset status and status change date
+  def reset
+    self.status           = STATUS_UNKNOWN
+    self.status_changed_at = Time.now
   end
 end

@@ -59,6 +59,7 @@ class SitesController < ApplicationController
   # PUT /sites/1.json
   def update
     @site = Site.find(params[:id])
+    @site.reset if params[:site][:url] != @site.url
 
     respond_to do |format|
       if @site.update_attributes(params[:site])
