@@ -11,7 +11,7 @@ class Site
 
   field :status, :type => String, :default => STATUS_UNKNOWN
   field :message, :type => String, :default => ""
-  field :status_change_at, :type => DateTime
+  field :status_changed_at, :type => DateTime
   
   validates_presence_of :url
   validates_format_of :url, :with => %r{^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$}
@@ -23,7 +23,7 @@ class Site
     if url_changed?
       self.status           = STATUS_UNKNOWN
       self.message          = ""
-      self.status_change_at = Time.now
+      self.status_changed_at = Time.now
     end
   end
 end

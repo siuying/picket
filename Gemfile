@@ -10,6 +10,7 @@ gem 'rufus-scheduler'
 gem 'devise'
 
 gem 'resque'
+gem 'resque_mailer'
 gem 'thin'
 gem 'foreman'
 gem 'typhoeus'

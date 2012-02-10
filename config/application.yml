@@ -1,11 +1,17 @@
 development:
   interval: "5m"
   redis: "localhost:6379"
+  email_sender: "picket@example.com"
+  domain: "example.com"
 
 test:
   interval: "5m"
   redis: "localhost:6379"
+  email_sender: "picket@example.com"
+  domain: "example.com"
 
 production:
   interval: "5m"
   redis: <%= ENV['REDIS_URL'] %>
+  email_sender: <%= ENV['EMAIL_SENDER'] %>
+  domain: <%= ENV['EMAIL_DOMAIN'] %>
