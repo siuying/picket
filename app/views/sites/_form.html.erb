@@ -1,4 +1,15 @@
 <%= simple_form_for @site do |f| %>
-  <%= f.input :url, :placeholder => 'http://', :input_html => { :class => 'span6' } %>
+	<%= f.input :url, :placeholder => 'http://', :label => 'make sure this site is up:', 
+		:input_html => { :class => 'span6' } %>
+	
+	<%= f.input :content_validate_type, 
+		:as => :radio_buttons, 
+		:collection => [[true, "Contains:"], [false, "Doesn't contains:"]], 
+		:label_method => "last", :label => "and", :wrapper_class => "contains" %>
+		
+	<%= f.input :content_validate_text, :label => "", :wrapper_class => "validate_text", 
+		:placeholder => 'Optional. Select from above to activate.',
+		:input_html => { :class => 'span6' } %>
+
   <%= f.button :submit %>
 <% end %>

@@ -8,3 +8,25 @@
 #sites-table .actions {
 float: right
 }
+
+// for radio buttons "Contains/not contains"
+div.url {
+	margin-top: 20px
+}
+div.radio_buttons.contains {
+	label.radio_buttons {
+		display: inline
+	}
+	label.radio_buttons, span.radio {
+		float: left; margin-right: 8px;
+	}
+	margin-top: 20px
+}
+
+div.validate_text {
+	clear: both;
+	margin-bottom: 20px;
+	label {
+		display: none
+	}
+}
