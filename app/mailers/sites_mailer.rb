@@ -11,9 +11,9 @@ class SitesMailer < ActionMailer::Base
     mail(:to => Settings.email.receiver, :subject => @subject)
   end
 
-  def notify_resolved(site_id, downtime)
+  def notify_resolved(site_id)
     @site = Site.find(site_id)
-    @downtime = downtime
+    @downtime = time_ago_in_words(@site.failed_at)
     @subject = "Error resolved for #{@site.url}"
     mail(:to => Settings.email.receiver, :subject => @subject)
   end  

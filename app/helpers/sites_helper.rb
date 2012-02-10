@@ -3,26 +3,30 @@ module SitesHelper
 
   def icon_for_site(site)
     case site.status
-    when Site::STATUS_UNKNOWN
+    when "unknown"
       image_tag("icons/help.png")
-    when Site::STATUS_OK
+    when "ok"
       image_tag("icons/accept.png")
-    when Site::STATUS_FAILED
+    when "failed"
       image_tag("icons/exclamation.png")
+    else
+      raise "unexpected state: #{site.state}"
     end
   end
 
   def message_for_site(site)
     site_name = site.url.gsub(%r{^http://}, "")
 
-    case site.status
-    when Site::STATUS_UNKNOWN
+    case site.state
+    when "unknown"
       "#{site_name} will be watched within 5 minutes"
-    when Site::STATUS_OK
+    when "ok"
       "#{site_name} is running"
-    when Site::STATUS_FAILED
-      time_change = time_ago_in_words(site.status_changed_at)
+    when "failed"
+      time_change = time_ago_in_words(site.failed_at)
       "#{site_name} is down since #{time_change} ago"
+    else
+      raise "unexpected state: #{site.state}"
     end
 
   end

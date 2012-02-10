@@ -12,29 +12,25 @@ class SiteFetcher
     site            = Site.find(site_id)
     response        = get_url(site.url)
 
-    last_status_failed = site.failed?
-    last_status_change = site.status_changed_at
-    
+    was_failed = site.failed?
+
     if response.success?
-      site.status = Site::STATUS_OK
+      site.ok!
     elsif response.timed_out?
-      site.status = Site::STATUS_FAILED
+      site.failed!
       site.message = "Could not get a response from the server before timing out (10 seconds)."
     elsif response.code == 0
-      site.status = Site::STATUS_FAILED
+      site.failed!
       site.message = "Could not get an http response, something's wrong."    
     else
-      site.status = Site::STATUS_FAILED
+      site.failed!
       site.message = "Server returned: #{response.code.to_s} #{response.status_message}"
     end
 
-    if site.status_changed?
-      if last_status_failed && site.ok?
-        SitesMailer.notify_resolved(site.id, time_ago_in_words(last_status_change)).deliver
-      elsif !last_status_failed && site.failed?
-        SitesMailer.notify_error(site.id).deliver
-      end
-      site.status_changed_at = Time.now
+    if was_failed && site.ok?
+      SitesMailer.notify_resolved(site.id).deliver
+    elsif !was_failed && site.failed?
+      SitesMailer.notify_error(site.id).deliver
     end
 
     site.save!

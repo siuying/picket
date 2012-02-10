@@ -8,6 +8,7 @@ gem 'mongoid'
 gem 'settingslogic'
 gem 'rufus-scheduler'
 gem 'devise'
+gem "transitions", :require => ["transitions", "active_record/transitions"]
 
 gem 'resque'
 gem 'resque_mailer'

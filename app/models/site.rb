@@ -1,32 +1,36 @@
+require 'transitions'
+
 class Site
   include Mongoid::Document
   include Mongoid::Timestamps
-
-  STATUS_UNKNOWN = "unknown"    
-  STATUS_OK     = "ok"
-  STATUS_FAILED = "failed"
-  STATUS = [STATUS_UNKNOWN, STATUS_OK, STATUS_FAILED]
-
+  include ActiveRecord::Transitions
+  
   field :url, :type => String
-
-  field :status, :type => String, :default => STATUS_UNKNOWN
+  field :state, :type => String
   field :message, :type => String, :default => ""
-  field :status_changed_at, :type => DateTime, :default => -> { Time.now }
+
+  field :ok_at, :type => DateTime
+  field :failed_at, :type => DateTime
   
   validates_presence_of :url
   validates_format_of :url, :with => %r{^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$}
 
-  def ok?
-    status == STATUS_OK
-  end
-  
-  def failed?
-    status == STATUS_FAILED
+  state_machine do
+    state :unknown
+    state :ok
+    state :failed
+    
+    event :ok, :timestamp => true do
+      transitions :from => [:ok, :failed, :unknown], :to => :ok
+    end
+
+    event :failed, :timestamp => true do
+      transitions :from => [:ok, :failed, :unknown], :to => :failed      
+    end
+    
+    event :reset do
+      transitions :from => [:ok, :failed], :to => :unknown
+    end
   end
 
-  # Reset status and status change date
-  def reset
-    self.status           = STATUS_UNKNOWN
-    self.status_changed_at = Time.now
-  end
 end
