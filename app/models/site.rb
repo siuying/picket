@@ -48,7 +48,7 @@ class Site
     if content_validate_type
       "Contains \"#{content_validate_text}\""
     else
-      "Don't contains \"#{content_validate_text}\""
+      "Doesn't contains \"#{content_validate_text}\""
     end
   end
 

@@ -28,7 +28,7 @@ describe Site do
 
     site.content_validate_type = false
     site.content_validate_text = "Hello"
-    site.content_valid_description.should == "Don't contains \"Hello\""
+    site.content_valid_description.should == "Doesn't contains \"Hello\""
   end
   
   context "#content_valid? to find if a page content is valid" do
