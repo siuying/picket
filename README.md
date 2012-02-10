@@ -51,6 +51,12 @@ bundle exec foreman start -p 3000
 - Open the browser at http://localhost:3000/
 - Login with default email: email@example.com and password: 9!cke7
 
+## Usage
+
+- Add sites by "Add" button
+- Sites will be checked every 5 minutes (configurable at config/application.yml)
+- On status change, email notification will be sent (configured in config/application.yml)
+
 ## License
 
 The MIT License
