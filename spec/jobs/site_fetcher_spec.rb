@@ -36,10 +36,10 @@ describe SiteFetcher do
       SiteFetcher.perform(@site.id)
     end
 
-    it "should send email when status is change from unknown to ok" do
+    it "should not send email when status is change from unknown to ok" do
       @site.update_attribute :status, Site::STATUS_UNKNOWN
       @response.stub(:success?).and_return(true) 
-      SitesMailer.should_receive(:notify_resolved).and_return(stub(:mailer, :deliver => true))
+      SitesMailer.should_not_receive(:notify_resolved).and_return(stub(:mailer, :deliver => true))
       SitesMailer.should_not_receive(:notify_error)
 
       SiteFetcher.perform(@site.id)

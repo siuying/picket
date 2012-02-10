@@ -4,15 +4,14 @@ class SiteFetcher
   
   # Fetch a site and log the result and update site according to the result.
   #
-  # Note: If the status changed to STATUS_OK or STATUS_FAILED, send a notification 
-  # email via SitesMailer.notify_resolved or SitesMailer.notify_error
+  # Side Effect: If the status changed from anything to FAILED, or changed 
+  # from FAILED to OK, send an email notification.
   #
   # site_id - id for the site to be fetched
   def self.perform(site_id)
     site            = Site.find(site_id)
     response        = get_url(site.url)
 
-    last_status_ok  = site.ok?
     last_status_failed = site.failed?
     last_status_change = site.status_changed_at
     
@@ -30,7 +29,7 @@ class SiteFetcher
     end
 
     if site.status_changed?
-      if !last_status_ok && site.ok?
+      if last_status_failed && site.ok?
         SitesMailer.notify_resolved(site.id, time_ago_in_words(last_status_change)).deliver
       elsif !last_status_failed && site.failed?
         SitesMailer.notify_error(site.id).deliver
