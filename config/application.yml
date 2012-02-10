@@ -1,17 +1,41 @@
 development:
   interval: "5m"
   redis: "localhost:6379"
-  email_sender: "picket@example.com"
   domain: "example.com"
+  email:
+    sender: "picket@example.com"
+    receiver: "picket@example.com"
+  mailer:
+    address: 'smtp.sendgrid.net'
+    port: 587
+    user_name: 'user'
+    password: 'password'
+    domain: 'heroku.com'
 
 test:
   interval: "5m"
   redis: "localhost:6379"
-  email_sender: "picket@example.com"
   domain: "example.com"
+  email:
+    sender: "picket@example.com"
+    receiver: "picket@example.com"
+  mailer:
+    address: 'smtp.sendgrid.net'
+    port: 587
+    user_name: 'user'
+    password: 'password'
+    domain: 'heroku.com'
 
 production:
   interval: "5m"
   redis: <%= ENV['REDIS_URL'] %>
-  email_sender: <%= ENV['EMAIL_SENDER'] %>
   domain: <%= ENV['EMAIL_DOMAIN'] %>
+  email:
+    sender: <%= ENV['EMAIL_SENDER'] %>
+    receiver: <%= ENV['EMAIL_RECEIVER'] %>
+  mailer:
+    address: 'smtp.sendgrid.net'
+    port: 587
+    user_name: <%= ENV['SENDGRID_USERNAME'] %>
+    password: <%= ENV['SENDGRID_PASSWORD'] %>
+    domain: 'heroku.com'
