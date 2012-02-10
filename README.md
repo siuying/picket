@@ -4,6 +4,10 @@ Picket is a free web site monitoring application. Consider it your own [wasitup.
 
 ![](http://cl.ly/0m2e2H0X0N1a0g3j1702/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202012-02-10%20%E4%B8%8B%E5%8D%8802.23.28.png)
 
+![](http://cl.ly/2Z1b2P102A2d3L1B1m0l/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202012-02-10%20%E4%B8%8B%E5%8D%8810.58.28.png)
+
+![](http://cl.ly/212d3s2T3t0q3i3G472W/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202012-02-10%20%E4%B8%8B%E5%8D%8810.59.50.png)
+
 ## Requirements
 
 - Ruby 1.9.3
