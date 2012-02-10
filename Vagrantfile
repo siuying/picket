@@ -20,5 +20,10 @@ Vagrant::Config.run do |config|
   
   # config.vm.boot_mode = :gui
   config.ssh.max_tries = 30
-
+    
+  # customzie VM
+  config.vm.customize [
+    "modifyvm", :id,
+    "--memory", "384"
+  ]
 end
