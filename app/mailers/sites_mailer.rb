@@ -1,5 +1,7 @@
 class SitesMailer < ActionMailer::Base
   include Resque::Mailer
+  include ActionView::Helpers::DateHelper
+
   helper :sites
 
   default :from => Settings.email.sender

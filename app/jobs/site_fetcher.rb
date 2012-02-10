@@ -1,7 +1,6 @@
 class SiteFetcher
   @queue = :fetch
-  extend ActionView::Helpers::DateHelper
-  
+
   # Fetch a site and log the result and update site according to the result.
   #
   # Side Effect: If the status changed from anything to FAILED, or changed 
