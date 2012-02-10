@@ -5,8 +5,17 @@
   float: right
 }
 
-#sites-table .actions {
-float: right
+#sites-table {
+	.actions {
+		float: right;
+	}
+
+	td.description {
+		small {
+			color: #aaa;
+		}
+	}
+
 }
 
 // for radio buttons "Contains/not contains"

@@ -14,5 +14,10 @@ FactoryGirl.define do
     state :ok
     failed_at { 3.minutes.ago }
   end
+  
+  factory :validate_site, :parent => :ok_site do
+    content_validate_type true
+    content_validate_text "Hello"
+  end
 
 end

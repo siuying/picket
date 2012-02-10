@@ -9,7 +9,10 @@
 <table class="table" id="sites-table">
 <% @sites.each do |site| %>
   <tr>
-    <td class="span7"><%= icon_for_site(site)%> <%= message_for_site(site) %></td>
+    <td class="span7 description">
+			<%= icon_for_site(site)%> <%= message_for_site(site) %> 
+			<small><%= site.failed? ? site.message : "" %></small>
+		</td>
     <td class="span2">
       <span class="actions">
       <%= link_to 'Edit', edit_site_path(site) %> 

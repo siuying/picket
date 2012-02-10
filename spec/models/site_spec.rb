@@ -20,6 +20,17 @@ describe Site do
     end
   end
   
+  context "#content_valid_description" do
+    site = FactoryGirl.create(:site)
+    site.content_validate_type = true
+    site.content_validate_text = "Hello"
+    site.content_valid_description.should == "Contains \"Hello\""
+
+    site.content_validate_type = false
+    site.content_validate_text = "Hello"
+    site.content_valid_description.should == "Don't contains \"Hello\""
+  end
+  
   context "#content_valid? to find if a page content is valid" do
     let(:site) { FactoryGirl.create(:site) }
 
