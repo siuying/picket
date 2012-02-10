@@ -21,7 +21,7 @@ module SitesHelper
     when Site::STATUS_OK
       "#{site_name} is running"
     when Site::STATUS_FAILED
-      time_change = time_ago_in_words(site.status_change_at)
+      time_change = time_ago_in_words(site.status_changed_at)
       "#{site_name} is down since #{time_change} ago"
     end
 
