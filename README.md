@@ -2,6 +2,8 @@
 
 Picket is a free web site monitoring application. Consider it your own [wasitup.com](http://wasitup.com).
 
+![](http://cl.ly/0m2e2H0X0N1a0g3j1702/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202012-02-10%20%E4%B8%8B%E5%8D%8802.23.28.png)
+
 ## Requirements
 
 - Ruby 1.9.3
@@ -55,7 +57,7 @@ bundle exec foreman start -p 3000
 
 - Add sites by "Add" button
 - Sites will be checked every 5 minutes (configurable at config/application.yml)
-- On status change, email notification will be sent (configured in config/application.yml)
+- On status change, email notification will be sent (configurable in config/application.yml)
 
 ## License
 
