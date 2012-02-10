@@ -5,7 +5,8 @@
 	<%= f.input :content_validate_type, 
 		:as => :radio_buttons, 
 		:collection => [[true, "Contains:"], [false, "Doesn't contains:"]], 
-		:label_method => "last", :label => "and", :wrapper_class => "contains" %>
+		:label_method => "last", :value_method => "first", 
+		:label => "and", :wrapper_class => "contains" %>
 		
 	<%= f.input :content_validate_text, :label => "", :wrapper_class => "validate_text", 
 		:placeholder => 'Optional. Select from above to activate.',

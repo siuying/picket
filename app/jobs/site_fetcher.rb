@@ -15,7 +15,12 @@ class SiteFetcher
     was_failed = site.failed?
 
     if response.success?
-      site.ok!
+      if site.content_valid?(response.body)
+        site.ok!
+      else
+        site.failed!
+        site.message = "Validation fail: #{site.content_valid_description}"
+      end
     elsif response.timed_out?
       site.failed!
       site.message = "Could not get a response from the server before timing out (10 seconds)."
