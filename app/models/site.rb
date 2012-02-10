@@ -32,7 +32,7 @@ class Site
     end
     
     event :reset do
-      transitions :from => [:ok, :failed], :to => :unknown
+      transitions :from => [:ok, :failed, :unknown], :to => :unknown
     end
   end
   
@@ -42,6 +42,14 @@ class Site
     return true if content_validate_type && content.include?(content_validate_text)
     return true if !content_validate_type && !content.include?(content_validate_text)
     return false
+  end
+  
+  def content_valid_description
+    if content_validate_type
+      "Contains #{content_validate_text}"
+    else
+      "Don't contains #{content_validate_text}"
+    end
   end
 
 end
