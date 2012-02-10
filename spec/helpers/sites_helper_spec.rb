@@ -21,7 +21,7 @@ describe SitesHelper do
     it "should return correct message for UNKNOWN site" do
       site = FactoryGirl.create(:site)
       message = SitesHelperSpec::message_for_site(site)
-      message.should == "ignition.hk will be watched within 5 minutes"
+      message.should == "ignition.hk will be watched soon"
     end
     
   end

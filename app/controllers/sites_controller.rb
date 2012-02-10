@@ -59,7 +59,11 @@ class SitesController < ApplicationController
   # PUT /sites/1.json
   def update
     @site = Site.find(params[:id])
-    @site.reset! if params[:site][:url] != @site.url
+
+    if params[:site][:url] != @site.url
+      @site.reset! 
+      Resque.enqueue(SiteFetcher, site.id.to_s)
+    end
 
     respond_to do |format|
       if @site.update_attributes(params[:site])

@@ -19,7 +19,7 @@ module SitesHelper
 
     case site.state
     when "unknown"
-      "#{site_name} will be watched within 5 minutes"
+      "#{site_name} will be watched soon"
     when "ok"
       "#{site_name} is running"
     when "failed"
