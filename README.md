@@ -1,6 +1,6 @@
 # Picket
 
-Picket is a free web site monitoring application. Consider your own wasitup.com.
+Picket is a free web site monitoring application. Consider it your own [wasitup.com](http://wasitup.com).
 
 ## Requirements
 
@@ -17,13 +17,36 @@ Picket is a free web site monitoring application. Consider your own wasitup.com.
 bundle install
 ```
 - Edit the configuartion files in config/*.yml
-- Install default users (optionally db/seed.rb first):
+- Setup default users (optionally edit db/seed.rb first):
 ```
 bundle exec rake db:seed
 ```
 - Run the applications by running command:
 ```
-foreman start -p 3000
+bundle exec foreman start -p 3000
+```
+- Open the browser at http://localhost:3000/
+- Login with default email: email@example.com and password: 9!cke7
+
+## Install via Vagrant
+
+- Checkout this repository
+- Install VirtualBox
+- Install dependencies by running command:
+```
+bundle install
+```
+- Startup VM:
+```
+bundle exec vagrant up
+```
+- Setup default users (optionally edit db/seed.rb first):
+```
+bundle exec rake db:seed
+```
+- Run the applications by running command:
+```
+bundle exec foreman start -p 3000
 ```
 - Open the browser at http://localhost:3000/
 - Login with default email: email@example.com and password: 9!cke7
