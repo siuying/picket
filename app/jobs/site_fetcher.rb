@@ -18,7 +18,6 @@ class SiteFetcher
     
     if response.success?
       site.status = Site::STATUS_OK
-      site.message = "OK"
     elsif response.timed_out?
       site.status = Site::STATUS_FAILED
       site.message = "Could not get a response from the server before timing out (10 seconds)."

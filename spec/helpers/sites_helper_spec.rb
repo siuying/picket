@@ -17,7 +17,7 @@ describe SitesHelper do
     it "should return correct message for FAILED site" do
       site = stub(:site)
       site.stub(:url => "http://ignition.hk", :status => "failed", 
-        :status_change_at => 3.minutes.ago)
+        :status_changed_at => 3.minutes.ago)
 
       message = SitesHelperSpec::message_for_site(site)
       message.should == "ignition.hk is down since 3 minutes ago"
