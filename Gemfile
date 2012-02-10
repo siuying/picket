@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.0'
 gem 'twitter-bootstrap-rails'
-gem 'simple_form'
+gem 'simple_form', '~> 2.0.0.rc'
 gem 'bson_ext'
 gem 'mongoid'
 gem 'settingslogic'
