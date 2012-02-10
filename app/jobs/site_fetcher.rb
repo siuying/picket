@@ -2,6 +2,12 @@ class SiteFetcher
   @queue = :fetch
   extend ActionView::Helpers::DateHelper
   
+  # Fetch a site and log the result and update site according to the result.
+  #
+  # Note: If the status changed to STATUS_OK or STATUS_FAILED, send a notification 
+  # email via SitesMailer.notify_resolved or SitesMailer.notify_error
+  #
+  # site_id - id for the site to be fetched
   def self.perform(site_id)
     site            = Site.find(site_id)
     response        = get_url(site.url)
