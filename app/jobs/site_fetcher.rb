@@ -3,10 +3,12 @@ class SiteFetcher
   extend ActionView::Helpers::DateHelper
   
   def self.perform(site_id)
-    site = Site.find(site_id)
-    response = get_url(site.url)
-    last_status = site.status
-    last_change = site.status_changed_at
+    site            = Site.find(site_id)
+    response        = get_url(site.url)
+
+    last_status_ok  = site.ok?
+    last_status_failed = site.failed?
+    last_status_change = site.status_changed_at
     
     if response.success?
       site.status = Site::STATUS_OK
@@ -23,9 +25,9 @@ class SiteFetcher
     end
 
     if site.status_changed?
-      if last_status == Site::STATUS_FAILED && site.status == Site::STATUS_OK
-        SitesMailer.notify_resolved(site.id, time_ago_in_words(last_change)).deliver
-      elsif last_status == Site::STATUS_OK && site.status == Site::STATUS_FAILED
+      if !last_status_ok && site.ok?
+        SitesMailer.notify_resolved(site.id, time_ago_in_words(last_status_change)).deliver
+      elsif !last_status_failed && site.failed?
         SitesMailer.notify_error(site.id).deliver
       end
       site.status_changed_at = Time.now
