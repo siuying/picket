@@ -1,5 +1,5 @@
 development:
-  interval: "5m"
+  interval: "1m"
   redis: "localhost:6379"
   domain: "example.com"
   email:
@@ -27,7 +27,7 @@ test:
     domain: 'heroku.com'
 
 production:
-  interval: "5m"
+  interval: <%= ENV['SCHEDULE_INTERVAL'] || "5m" %>
   redis: <%= ENV['REDIS_URL'] %>
   domain: <%= ENV['EMAIL_DOMAIN'] %>
   email:
