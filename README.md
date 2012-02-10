@@ -1,6 +1,6 @@
 # Picket
 
-Picket is a free web site monitoring application. Consider it your own [wasitup.com](http://wasitup.com).
+Picket is a free web site monitoring application. Consider it your own [wasitup.com](http://wasitup.com): "Get a notice when your web page goes down."
 
 ![](http://cl.ly/0m2e2H0X0N1a0g3j1702/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202012-02-10%20%E4%B8%8B%E5%8D%8802.23.28.png)
 
