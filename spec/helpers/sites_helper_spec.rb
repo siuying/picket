@@ -26,15 +26,15 @@ describe SitesHelper do
     
   end
 
-  context "#content_valid_description" do
+  context "#validation_description" do
     site = FactoryGirl.create(:site)
     site.content_validate_type = true
     site.content_validate_text = "Hello"
-    SitesHelperSpec::content_valid_description(site).should == "Contains \"Hello\""
+    SitesHelperSpec::validation_description(site).should == "Contains \"Hello\""
   
     site.content_validate_type = false
     site.content_validate_text = "Hello"
-    SitesHelperSpec::content_valid_description(site).should == "Doesn't contains \"Hello\""
+    SitesHelperSpec::validation_description(site).should == "Doesn't contains \"Hello\""
   end 
   
 end
