@@ -35,13 +35,4 @@ class Site
       transitions :from => [:ok, :failed, :unknown], :to => :unknown
     end
   end
-  
-  def content_valid_description
-    if content_validate_type
-      "Contains \"#{content_validate_text}\""
-    else
-      "Doesn't contains \"#{content_validate_text}\""
-    end
-  end
-
 end
