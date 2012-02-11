@@ -7,34 +7,15 @@ class SiteFetcher
   # from FAILED to OK, send an email notification.
   #
   # site_id - id for the site to be fetched
-  def self.perform(site_id)
-    site            = Site.find(site_id)
-    response        = get_url(site.url)
-
+  def self.perform(site_id, mailer=SitesMailer)
+    site       = Site.find(site_id)
     was_failed = site.failed?
-
-    if response.success?
-      if site.content_valid?(response.body)
-        site.ok!
-      else
-        site.failed!
-        site.message = "Validation fail: #{site.content_valid_description}"
-      end
-    elsif response.timed_out?
-      site.failed!
-      site.message = "Could not get a response from the server before timing out (10 seconds)."
-    elsif response.code == 0
-      site.failed!
-      site.message = "Could not get an http response, something's wrong."    
-    else
-      site.failed!
-      site.message = "Server returned: #{response.code.to_s} #{response.status_message}"
-    end
+    SiteWatcher.new(site).watch
 
     if was_failed && site.ok?
-      SitesMailer.notify_resolved(site.id).deliver
+      mailer.notify_resolved(site.id).deliver
     elsif !was_failed && site.failed?
-      SitesMailer.notify_error(site.id).deliver
+      mailer.notify_error(site.id).deliver
     end
 
     site.save!
