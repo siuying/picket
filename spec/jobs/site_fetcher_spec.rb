@@ -3,51 +3,57 @@ require 'spec_helper'
 describe SiteFetcher do
   before(:each) do
     @mailer = double(:sites_mailer).as_null_object
-    @watcher = double(:site_watcher)
+    @watcher = double(:watcher)
     SiteWatcher.stub(:new => @watcher)
+    SitesMailer.stub(:new => @mailer)
   end
 
   context "fetch page and notify if needed" do
     it "should not send notification when status is ok and no change" do
       @site = FactoryGirl.create(:ok_site)
+      @watcher.stub(:watch => "ok")
       @mailer.should_not_receive(:notify_error).should_not_receive(:notify_resolved)
-      @watcher.stub(:watch) { @site.ok!; @watcher }
       SiteFetcher.perform(@site.id, @mailer)
     end
 
     it "should send when status is change from ok to fail" do
       @site = FactoryGirl.create(:ok_site)
+      @watcher.stub(:watch => "failed")
+
       @mailer.should_receive(:notify_error).and_return(stub(:mailer, :deliver => true))
       @mailer.should_not_receive(:notify_resolved)
-      @watcher.should_receive(:watch) { @site.failed!; @watcher }
+
       SiteFetcher.perform(@site.id, @mailer)
     end
     
     it "should send when status is change from fail to ok" do
-      # @site = FactoryGirl.create(:failed_site)
-      # @response.stub(:success?).and_return(true) 
-      # SitesMailer.should_receive(:notify_resolved).and_return(stub(:mailer, :deliver => true))
-      # SitesMailer.should_not_receive(:notify_error)
-      # 
-      # SiteFetcher.perform(@site.id)
+      @site = FactoryGirl.create(:failed_site)
+      @watcher.stub(:watch => "ok")
+
+      @mailer.should_not_receive(:notify_error)
+      @mailer.should_receive(:notify_resolved).and_return(stub(:mailer, :deliver => true))
+
+      SiteFetcher.perform(@site.id)
     end
 
     it "should not email when status is change from unknown to ok" do
-      # @site = FactoryGirl.create(:site)
-      # @response.stub(:success?).and_return(true) 
-      # SitesMailer.should_not_receive(:notify_resolved).and_return(stub(:mailer, :deliver => true))
-      # SitesMailer.should_not_receive(:notify_error)
-      # 
-      # SiteFetcher.perform(@site.id)
+      @site = FactoryGirl.create(:site)
+      @watcher.stub(:watch => "ok")
+
+      @mailer.should_not_receive(:notify_error)
+      @mailer.should_not_receive(:notify_resolved)
+
+      SiteFetcher.perform(@site.id)
     end
 
     it "should send when status is change from unknown to fail" do
-      # @site = FactoryGirl.create(:site)
-      # @response.stub(:success? => false, :timed_out? => false, :code => 404, :status_message => "Not found")
-      # SitesMailer.should_receive(:notify_error).and_return(stub(:mailer, :deliver => true))
-      # SitesMailer.should_not_receive(:notify_resolved)
-      # 
-      # SiteFetcher.perform(@site.id)
+      @site = FactoryGirl.create(:site)
+      @watcher.stub(:watch => "failed")
+
+      @mailer.should_not_receive(:notify_resolved)
+      @mailer.should_receive(:notify_error).and_return(stub(:mailer, :deliver => true))
+
+      SiteFetcher.perform(@site.id)
     end 
   end
 end

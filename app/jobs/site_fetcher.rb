@@ -1,3 +1,5 @@
+require 'pry'
+
 class SiteFetcher
   @queue = :fetch
 
@@ -10,11 +12,11 @@ class SiteFetcher
   def self.perform(site_id, mailer=SitesMailer)
     site       = Site.find(site_id)
     was_failed = site.failed?
-    SiteWatcher.new(site).watch
+    now_state  = SiteWatcher.new(site).watch
 
-    if was_failed && site.ok?
+    if was_failed && now_state == "ok"
       mailer.notify_resolved(site.id).deliver
-    elsif !was_failed && site.failed?
+    elsif !was_failed && now_state == "failed"
       mailer.notify_error(site.id).deliver
     end
 

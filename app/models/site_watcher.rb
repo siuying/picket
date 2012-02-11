@@ -24,7 +24,7 @@ class SiteWatcher
       @site.message = "Server returned: #{response.code.to_s} #{response.status_message}"
     end
 
-    self
+    @site.state
   end
   
   private
