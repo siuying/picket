@@ -15,14 +15,14 @@ describe SiteFetcher do
       @mailer.should_not_receive(:notify_error).should_not_receive(:notify_resolved)
       SiteFetcher.perform(@site.id, @mailer)
     end
-
+    
     it "should send when status is change from ok to fail" do
       @site = FactoryGirl.create(:ok_site)
       @watcher.stub(:watch => "failed")
-
+    
       @mailer.should_receive(:notify_error).and_return(stub(:mailer, :deliver => true))
       @mailer.should_not_receive(:notify_resolved)
-
+    
       SiteFetcher.perform(@site.id, @mailer)
     end
     
@@ -33,17 +33,17 @@ describe SiteFetcher do
       @mailer.should_not_receive(:notify_error)
       @mailer.should_receive(:notify_resolved).and_return(stub(:mailer, :deliver => true))
 
-      SiteFetcher.perform(@site.id)
+      SiteFetcher.perform(@site.id, @mailer)
     end
 
     it "should not email when status is change from unknown to ok" do
       @site = FactoryGirl.create(:site)
       @watcher.stub(:watch => "ok")
-
+    
       @mailer.should_not_receive(:notify_error)
       @mailer.should_not_receive(:notify_resolved)
-
-      SiteFetcher.perform(@site.id)
+    
+      SiteFetcher.perform(@site.id, @mailer)
     end
 
     it "should send when status is change from unknown to fail" do
@@ -53,7 +53,7 @@ describe SiteFetcher do
       @mailer.should_not_receive(:notify_resolved)
       @mailer.should_receive(:notify_error).and_return(stub(:mailer, :deliver => true))
 
-      SiteFetcher.perform(@site.id)
+      SiteFetcher.perform(@site.id, @mailer)
     end 
   end
 end
