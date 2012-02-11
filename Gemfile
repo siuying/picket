@@ -30,6 +30,7 @@ group :test do
 end
 
 group :development do
+  gem 'pry'
   gem 'vagrant'
   gem 'guard'
   gem 'guard-rails'
