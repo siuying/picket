@@ -28,6 +28,14 @@ module SitesHelper
     else
       raise "unexpected state: #{site.state}"
     end
-
   end
+  
+  def validation_description(site)
+    if site.content_validate_type
+      "Contains \"#{site.content_validate_text}\""
+    else
+      "Doesn't contains \"#{site.content_validate_text}\""
+    end
+  end
+  
 end

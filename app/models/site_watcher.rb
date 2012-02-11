@@ -1,4 +1,6 @@
 class SiteWatcher
+  include SitesHelper
+  
 	def initialize(site)
     @site = site
   end
@@ -11,7 +13,7 @@ class SiteWatcher
         @site.ok!
       else
         @site.failed!
-        @site.message = "Validation fail: #{@site.content_valid_description}"
+        @site.message = "Validation fail: #{validation_description(@site)}"
       end
     elsif response.timed_out?
       @site.failed!
