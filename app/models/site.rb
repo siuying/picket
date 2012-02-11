@@ -36,14 +36,6 @@ class Site
     end
   end
   
-  def content_valid?(content)
-    return true if content_validate_text.empty?
-    return true if content_validate_type.nil?
-    return true if content_validate_type && content.include?(content_validate_text)
-    return true if !content_validate_type && !content.include?(content_validate_text)
-    return false
-  end
-  
   def content_valid_description
     if content_validate_type
       "Contains \"#{content_validate_text}\""

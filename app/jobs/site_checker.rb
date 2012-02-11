@@ -1,11 +1,7 @@
-require 'pry'
-
-class SiteFetcher
+class SiteChecker
   @queue = :fetch
 
-  # Fetch a site and log the result and update site according to the result.
-  #
-  # Side Effect: If the status changed from anything to FAILED, or changed 
+  # Check status of a site, if the status changed from anything to FAILED, or changed 
   # from FAILED to OK, send an email notification.
   #
   # site_id - id for the site to be fetched
