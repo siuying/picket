@@ -3,6 +3,7 @@ class SiteWatcher
   
 	def initialize(site)
     @site = site
+    @http_timeout = Settings.http_timeout
   end
   
   def watch
@@ -17,7 +18,7 @@ class SiteWatcher
       end
     elsif response.timed_out?
       @site.failed!
-      @site.message = "Could not get a response from the server before timing out (10 seconds)."
+      @site.message = "Could not get a response from the server before timing out (#{@http_timeout} seconds)."
     elsif response.code == 0
       @site.failed!
       @site.message = "Could not get an http response, something's wrong."    
@@ -39,7 +40,7 @@ class SiteWatcher
   end
 
   def get_url(url)
-    request = Typhoeus::Request.new(url, :method => :get, :timeout => 10000, :follow_location => true)
+    request = Typhoeus::Request.new(url, :method => :get, :timeout => @http_timeout * 1000, :follow_location => true)
     hydra = Typhoeus::Hydra.hydra
     hydra.queue(request)
     hydra.run

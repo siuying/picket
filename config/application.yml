@@ -1,4 +1,5 @@
 development:
+  http_timeout: 15
   interval: "1m"
   redis: "localhost:6379"
   domain: "example.com"
@@ -13,6 +14,7 @@ development:
     domain: 'heroku.com'
 
 test:
+  http_timeout: 15
   interval: "5m"
   redis: "localhost:6379"
   domain: "example.com"
@@ -27,6 +29,7 @@ test:
     domain: 'heroku.com'
 
 production:
+  http_timeout: <%= ENV['HTTP_TIMEOUT'].nil? ? 15 : ENV['HTTP_TIMEOUT'].to_i %>
   interval: <%= ENV['SCHEDULE_INTERVAL'] || "5m" %>
   redis: <%= ENV['REDIS_URL'] %>
   domain: <%= ENV['EMAIL_DOMAIN'] %>
