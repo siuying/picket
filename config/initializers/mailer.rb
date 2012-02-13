@@ -6,4 +6,3 @@ ActionMailer::Base.smtp_settings = {
   :password       => Settings.mailer.password,
   :domain         => Settings.mailer.domain
 }
-ActionMailer::Base.delivery_method = :smtp

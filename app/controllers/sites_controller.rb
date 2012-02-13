@@ -4,7 +4,7 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
-    @sites = Site.all
+    @sites = current_user.sites
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -43,6 +43,7 @@ class SitesController < ApplicationController
   # POST /sites.json
   def create
     @site = Site.new(params[:site])
+    @site.user = current_user
 
     respond_to do |format|
       if @site.save
@@ -58,7 +59,7 @@ class SitesController < ApplicationController
   # PUT /sites/1
   # PUT /sites/1.json
   def update
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])
 
     if params[:site][:url] != @site.url
       @site.reset! 
@@ -79,7 +80,7 @@ class SitesController < ApplicationController
   # DELETE /sites/1
   # DELETE /sites/1.json
   def destroy
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])
     @site.destroy
 
     respond_to do |format|

@@ -6,6 +6,7 @@ gem 'simple_form', '~> 2.0.0.rc'
 gem 'bson_ext'
 gem 'mongoid'
 gem 'settingslogic'
+gem 'database_cleaner'
 gem 'rufus-scheduler'
 gem 'devise'
 gem "transitions", :require => ["transitions", "active_record/transitions"]

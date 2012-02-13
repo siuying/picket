@@ -22,6 +22,8 @@ class User
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
 
+  has_many :sites
+
   ## Encryptable
   # field :password_salt, :type => String
 

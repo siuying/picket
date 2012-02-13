@@ -5,7 +5,6 @@ development:
   domain: "example.com"
   email:
     sender: "picket@example.com"
-    receiver: "picket@example.com"
   mailer:
     address: 'smtp.sendgrid.net'
     port: 587
@@ -20,7 +19,6 @@ test:
   domain: "example.com"
   email:
     sender: "picket@example.com"
-    receiver: "picket@example.com"
   mailer:
     address: 'smtp.sendgrid.net'
     port: 587
@@ -35,7 +33,6 @@ production:
   domain: <%= ENV['EMAIL_DOMAIN'] %>
   email:
     sender: <%= ENV['EMAIL_SENDER'] %>
-    receiver: <%= ENV['EMAIL_RECEIVER'] %>
   mailer:
     address: 'smtp.sendgrid.net'
     port: 587

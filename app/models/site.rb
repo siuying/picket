@@ -14,7 +14,9 @@ class Site
 
   field :ok_at, :type => DateTime
   field :failed_at, :type => DateTime
-  
+
+  belongs_to :user
+
   validates_presence_of :url
   validates_format_of :url, :with => %r{^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$}
 
