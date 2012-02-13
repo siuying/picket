@@ -63,7 +63,7 @@ class SitesController < ApplicationController
 
     if params[:site][:url] != @site.url
       @site.reset! 
-      Resque.enqueue(SiteFetcher, @site.id.to_s)
+      Resque.enqueue(SiteChecker, @site.id.to_s)
     end
 
     respond_to do |format|
