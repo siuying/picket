@@ -212,6 +212,7 @@ GEM
       net-scp (>= 1.0.2)
       net-ssh (>= 2.0.19)
       virtualbox (~> 0.7.3)
+    vcr (2.0.0.rc1)
     vegas (0.1.11)
       rack (>= 1.0.0)
     virtualbox (0.7.5)
@@ -251,3 +252,4 @@ DEPENDENCIES
   typhoeus
   uglifier (>= 1.0.3)
   vagrant
+  vcr (~> 2.0.0.rc1)

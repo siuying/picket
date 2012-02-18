@@ -1,0 +1,172 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://ignition.hk
+    body: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: Found
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      - text/html; charset=utf-8
+      Connection:
+      - keep-alive
+      - keep-alive
+      Status:
+      - '302'
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.9
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.9
+      Vary:
+      - Accept-Language
+      Location:
+      - http://ignition.hk/lang-en/
+      X-Rack-Cache:
+      - miss
+      - miss
+      X-Runtime:
+      - '13'
+      - '895'
+      Date:
+      - Sat, 18 Feb 2012 04:24:43 GMT
+      - Sat, 18 Feb 2012 04:24:44 GMT
+      Content-Length:
+      - '40'
+      Set-Cookie:
+      - _ignition_session=BAh7BjoPc2Vzc2lvbl9pZCIlMzI3NGM0OTA1OTBhMTQ5MzIyNDIwMWM2N2M4Njg3Mjk%3D--979c1f848180c521a57116c4c6f7fa952400ae77;
+        path=/; HttpOnly
+      - _ignition_session=BAh7BjoPc2Vzc2lvbl9pZCIlMjIxOGUwM2Y1ZGI4MzQxZjNkMzZlMmFmNThlOWM3Mzg%3D--da91a93b29e9e0ab0fd915413f0c79fd54b318e7;
+        path=/; HttpOnly
+      Cache-Control:
+      - max-age=, private, no-cache
+      - max-age=, private, no-cache
+      Server:
+      - nginx/1.0.6 + Phusion Passenger 3.0.9 (mod_rails/mod_rack)
+      - nginx/1.0.6 + Phusion Passenger 3.0.9 (mod_rails/mod_rack)
+      Transfer-Encoding:
+      - chunked
+      Content-Encoding:
+      - gzip
+    body: ! "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\r\n  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\r\n<html
+      xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n  <head>\r\n    <title>Home
+      - Ignition Soft</title>\r\n    <link rel=\"shortcut icon\" href=\"/assets/132/favicon.ico\"
+      >\r\n    <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"
+      />\r\n    <meta name=\"viewport\" content=\"user-scalable=no, width=device-width\"
+      />\r\n    <meta name=\"bitly-verification\" content=\"15f37ca52151\"/>\r\n    <meta
+      name=\"viewport\" content=\"width=device-width\" /> \r\n    <script src=\"http://platform.twitter.com/anywhere.js?id=O0VohmmEPKIC6OaXB47fw&v=1\"
+      type=\"text/javascript\"></script>\r\n    <meta name=\"description\" content=\"Ignition
+      Soft\" /><meta name=\"keywords\" content=\"iPhone, iPad, iPod, Application\"
+      />\r\n    <meta name=\"language\" content=\"en\"/>\r\n    <link href=\"/rss/\"
+      rel=\"alternate\" title=\"RSS\" type=\"application/rss+xml\" />\r\n    <link
+      rel=\"stylesheet\" type=\"text/css\" href=\"http://yui.yahooapis.com/3.0.0/build/cssreset/reset-min.css\"
+      />\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://yui.yahooapis.com/3.0.0/build/cssbase/base-min.css\"
+      /> \r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://yui.yahooapis.com/3.0.0/build/cssfonts/fonts-min.css\"
+      />\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/12/jquery.lightbox-0.5.css\"
+      />\r\n    <link rel=\"stylesheet\" media=\"screen\" href=\"http://ignition.hk/assets/150/nivo-slider.css\"
+      type=\"text/css\" />\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"/mobile.css\"
+      media=\"only screen and (max-device-width: 480px)\" />\r\n    <link rel=\"stylesheet\"
+      type=\"text/css\" href=\"/mobile-retina.css\" media=\"only screen and (max-device-width:
+      480px) and (-webkit-min-device-pixel-ratio: 2)\" />\r\n    <link rel=\"stylesheet\"
+      type=\"text/css\" href=\"/styles.css\" media=\"screen and (min-device-width:
+      481px)\" />\r\n\r\n    <script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></script>\r\n
+      \   <script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js\"></script>\r\n
+      \   <script type=\"text/javascript\" src=\"/assets/13/jquery.lightbox-0.5.pack.js\"></script>\r\n
+      \   <script type=\"text/javascript\" src=\"/assets/2/jquery.corner.js\"></script>\r\n
+      \ </head>\r\n  <body id=\"body\">\r\n    <div id=\"container\">\r\n      <div
+      id=\"header\">\r\n\r\n\r\n<h1><span>Ignition Soft</span></h1>\r\n\r\n</div>\r\n\r\n
+      \     <div id=\"content\">\r\n        <select onchange=\"location.href=this.value;\"
+      id=\"lang-selector\">\r\n\r\n      <option selected=\"selected\" value=\"/lang-en\">English</option>\r\n
+      \     <option value=\"/lang-ja/\">日本語</option>\r\n      <option value=\"/lang-zh/\">中文</option>
+      \ \r\n\r\n\r\n\r\n</select>\r\n\r\n<div id=\"applications\">\r\n\r\n\r\n  <h2>iPhone
+      Apps</h2>\r\n  <a href=\"/iphone/splitcam\" title=\"SplitCam\"><img src=\"/assets/155/sc_icon.png\"
+      \ alt='SC Icon' /></a>\r\n  <a href=\"http://scopy.ignition.hk/index.html\"
+      title=\"Scopy\" target=\"_blank\"><img src=\"/assets/113/scopy.png\"  alt='scopy'
+      /></a>\r\n  <a href=\"/iphone/note\" title=\"Note & Share\"><img src=\"/assets/91/note.png\"
+      \ alt='note-icon' /></a>\r\n  \r\n  <div class=\"list\">\r\n    <div class=\"entry\">\r\n
+      \     <h5><a href=\"/iphone/splitcam\" title=\"SplitCam\" target=\"_blank\">SplitCam</a></h5>\r\n
+      \     <p>SplitCam dividing your camera to two halves. You control what is added
+      to either side, at any angle you wish.</p>\r\n    </div>\r\n\r\n    <div class=\"entry\">\r\n
+      \     <h5><a href=\"http://scopy.ignition.hk/index.html\" title=\"Scopy\" target=\"_blank\">Scopy</a></h5>\r\n
+      \     <p>Scopy is a beautiful Twitter client for photo lovers</p>\r\n    </div>\r\n
+      \   \r\n    <div class=\"entry\">\r\n      <h5><a href=\"/iphone/note\" title=\"Note
+      & Share\">Note & Share</a></h5>\r\n      <p>Share note to Twitter, Facebook,
+      Evernote, Dropbox, Google Docs, Mail, and more with a single tap</p>\r\n    </div>\r\n
+      \ </div>\r\n\r\n  <h2>Magic Apps</h2>\r\n  <a href=\"/iphone/magic-lesson\"
+      title=\"Magic Lesson\"><img src=\"/assets/58/apple-touch-icon.png\"  alt='Magic
+      Lesson Icon JP' /></a>\r\n  <a href=\"/iphone/magic-lesson-2\" title=\"Magic
+      Lesson Advanced for iPhone and iPad\"><img src=\"/assets/60/apple-touch-icon.png\"
+      \ alt='Magic Lesson Advanced Icon' /></a>\r\n  <a href=\"/iphone/magic-premonition\"
+      title=\"Magic Kit ~ Premonition\"><img src=\"/assets/50/hat-icon.png\"  alt='Hat
+      Icon' /></a>\r\n  <a href=\"/iphone/magic-time\" title=\"Magic Kit ~ Time Lord\"><img
+      src=\"/assets/51/apple-touch-icon.png\"  alt='Time Lord Icon Small' /></a>\r\n
+      \ <a href=\"/iphone/mindmagic\" title=\"Magic Kit ~ Mind Magic\"><img src=\"/assets/114/magic-kit-icon.png\"
+      \ alt='magic-kit-icon' /></a>\r\n  <a href=\"/iphone/fastercalc\" title=\"Magic
+      Kit ~ Faster than Calc\"><img src=\"/assets/136/calc-icon.png\"  alt='calc-icon'
+      /></a>\r\n  <a href=\"/iphone/mindreader\" title=\"Magic Kit ~ MindReader\"><img
+      src=\"/assets/224/icon-web.png\"  alt='mind reader icon' /></a>\r\n  \r\n  <div
+      class=\"list\">\r\n    <div class=\"entry\">\r\n    <h5><a href=\"/iphone/magic-lesson\"
+      title=\"Magic Lesson\">Magic Lesson</a></h5>\r\n    <p>Magic is not necessarily
+      difficult, with Magic Lesson, it is fun, entertaining and easy to learn</p>\r\n
+      \   </div>\r\n    \r\n    <div class=\"entry\">\r\n    <h5><a href=\"/iphone/magic-lesson-2\"
+      title=\"Magic Lesson Advanced\">Magic Lesson Advance</a></h5>\r\n    <p>Magic
+      Lesson Advanced maybe one of the finest apps which teaches REAL professional
+      magic on mobile platform</p>\r\n    </div>\r\n    \r\n    <div class=\"entry\">\r\n
+      \   <h5><a href=\"/iphone/magic-premonition\" title=\"Magic Kit ~ Premonition\">Magic
+      Kit ~ Premonition</a></h5>\r\n    <p>Predict any of the 52 cards</p>\r\n    </div>\r\n
+      \   \r\n    <div class=\"entry\">\r\n    <h5><a href=\"/iphone/magic-time\"
+      title=\"Magic Kit ~ Time Lord\">Magic Kit ~ Time Lord</a></h5>\r\n    <p>Reveal
+      the time in the audience mind</p>\r\n    </div>\r\n    \r\n    <div class=\"entry\">\r\n
+      \   <h5><a href=\"/iphone/mindmagic\" title=\"Magic Kit ~ Mind Magic\">Magic
+      Kit ~ Mind Magic</a></h5>\r\n    <p>Read any 3-digit number from Spectator</p>\r\n
+      \   </div>  \r\n\r\n    <div class=\"entry\">\r\n    <h5><a href=\"/iphone/fastercalc\"
+      title=\"Magic Kit ~ Faster than Calc\">Magic Kit ~ Faster than Calc</a></h5>\r\n
+      \   <p>Solve any complicated formula with magic</p>\r\n    </div>\r\n\r\n    <div
+      class=\"entry\">\r\n    <h5><a href=\"/iphone/mindreader\" title=\"Magic Kit
+      ~ Mind Reader\">Magic Kit ~ Mind Reader</a></h5>\r\n    <p>Using principle in
+      cognitive psychology, 'Mind Reader' transform you to magic master with mind
+      reading power</p>\r\n    </div>    \r\n  </div>\r\n\r\n  <h2>iPad Apps</h2>\r\n
+      \ <a href=\"http://webpad.hk\" target=\"_blank\" title=\"WebPad\" class=\"hidden\"><img
+      src=\"/assets/88/webpad-icon.png\"  alt='Web Pad Icon' /></a>\r\n  <a href=\"/iphone/note\"
+      title=\"Note & Share\"><img src=\"/assets/91/note.png\"  alt='note-icon' /></a>\r\n
+      \ \r\n  <div class=\"list\">\r\n    <div class=\"entry hidden\">\r\n    <h5><a
+      href=\"http://webpad.hk/\" title=\"WebPad\" target=\"_blank\">WebPad</a></h5>\r\n
+      \   <p>Draw on your iPad and anyone can see it on web, in realtime</p>\r\n    </div>\r\n
+      \   \r\n    <div class=\"entry\">\r\n    <h5><a href=\"/iphone/note\" title=\"Note
+      & Share\">Note & Share</a></h5>\r\n    <p>Share note to Twitter, Facebook, Evernote,
+      Dropbox, Google Docs, Mail, and more with a single tap</p>\r\n    </div>\r\n
+      \ </div>\r\n\r\n\r\n  <h2>Mac Apps</h2>\r\n  <a href=\"http://appmon.ignition.hk\"
+      target=\"_blank\" title=\"AppMon\"><img src=\"/assets/165/icon.png\"  alt='AppMon
+      Icon' /></a>\r\n  \r\n  <div class=\"list\">\r\n    <div class=\"entry\">\r\n
+      \   <h5><a href=\"http://appmon.ignition.hk/\" title=\"AppMon\" target=\"_blank\">AppMon</a></h5>\r\n
+      \   <p>Got apps on App Store? You want to know what your users needs and feel.
+      </p>\r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</div>\r\n\r\n\r\n
+      \     </div>\r\n      <div id=\"extended\">\r\n        \r\n      </div>\r\n
+      \     <div id=\"footer\" class=\"footer\">\r\n<ul class=\"nav\">\r\n<li></li>\r\n\r\n\r\n<li>Apps</li>\r\n\r\n\r\n\r\n\r\n\r\n<li><a
+      href=\"/changes\">Changes</a></li>\r\n\r\n\r\n\r\n<li><a href=\"/contact\">Contact</a></li>\r\n\r\n\r\n\r\n\r\n<li><a
+      href=\"/blog\">Blog</a></li>\r\n\r\n\r\n<li><a href=\"http://twitter.com/#!/ignitionsoft\"
+      target=\"_BLANK\" title=\"Follow us on Twitter!\">Twitter</a></li>\r\n</ul>\r\n\r\n</div>\r\n
+      \   </div>\r\n\r\n<!-- GetSatisfaction -->\r\n<script type=\"text/javascript\"
+      charset=\"utf-8\">\r\n  var is_ssl = (\"https:\" == document.location.protocol);\r\n
+      \ var asset_host = is_ssl ? \"https://s3.amazonaws.com/getsatisfaction.com/\"
+      : \"http://s3.amazonaws.com/getsatisfaction.com/\";\r\nif (screen.width>480)
+      {\r\n  document.write(unescape(\"%3Cscript src='\" + asset_host + \"javascripts/feedback-v2.js'
+      type='text/javascript'%3E%3C/script%3E\"));\r\n}\r\n</script>\r\n<script type=\"text/javascript\"
+      charset=\"utf-8\">\r\nif (screen.width>480) {\r\n  var feedback_widget_options
+      = {};\r\n  feedback_widget_options.display = \"overlay\";  \r\n  feedback_widget_options.company
+      = \"ignition\";\r\n  feedback_widget_options.placement = \"right\";\r\n  feedback_widget_options.color
+      = \"#222\";\r\n  feedback_widget_options.style = \"idea\";\r\n  var feedback_widget
+      = new GSFN.feedback_widget(feedback_widget_options);\r\n}\r\n</script>\r\n<!--
+      END GetSatisfaction -->\r\n\r\n<!-- GA -->\r\n<script type=\"text/javascript\">\r\nvar
+      gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" :
+      \"http://www.\");\r\ndocument.write(unescape(\"%3Cscript src='\" + gaJsHost
+      + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\r\n</script>\r\n<script
+      type=\"text/javascript\">\r\ntry {\r\nvar pageTracker = _gat._getTracker(\"UA-12374523-1\");\r\npageTracker._trackPageview();\r\n}
+      catch(err) {}</script>\r\n<!-- END GA -->\r\n  </body>\r\n</html>\r\n"
+    http_version: '1.1'
+  recorded_at: Sat, 18 Feb 2012 04:24:44 GMT
+recorded_with: VCR 2.0.0.rc1
