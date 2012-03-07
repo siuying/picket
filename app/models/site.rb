@@ -5,6 +5,8 @@ class Site
   include Mongoid::Timestamps
   include ActiveRecord::Transitions
   
+  attr_accessible :url
+  
   field :url, :type => String
   field :state, :type => String, :default => "unknown"
   field :message, :type => String, :default => ""
