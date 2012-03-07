@@ -1,5 +1,7 @@
 class SitesController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :load_site, :except => [:index, :new, :create]
+  before_filter :required_owner!, :except => [:index, :new, :create]
 
   # GET /sites
   # GET /sites.json
@@ -15,8 +17,6 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
-    @site = current_user.sites.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @site }
@@ -36,7 +36,6 @@ class SitesController < ApplicationController
 
   # GET /sites/1/edit
   def edit
-    @site = Site.find(params[:id])
   end
 
   # POST /sites
@@ -59,8 +58,6 @@ class SitesController < ApplicationController
   # PUT /sites/1
   # PUT /sites/1.json
   def update
-    @site = current_user.sites.find(params[:id])
-
     if params[:site][:url] != @site.url
       @site.reset! 
       Resque.enqueue(SiteChecker, @site.id.to_s)
@@ -80,7 +77,6 @@ class SitesController < ApplicationController
   # DELETE /sites/1
   # DELETE /sites/1.json
   def destroy
-    @site = current_user.sites.find(params[:id])
     @site.destroy
 
     respond_to do |format|
@@ -88,4 +84,16 @@ class SitesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+  def load_site
+    @site = current_user.sites.find(params[:id])
+  end
+
+  def required_owner!
+    if @site.user_id != current_user.id
+      render :nothing => true, :status => :forbidden
+    end
+  end
+
 end
