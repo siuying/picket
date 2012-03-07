@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe UserController do
+  let(:alice) { Factory(:alice) }
   let(:bob) { Factory(:bob) }
 
   context "User not logged in" do
@@ -14,6 +15,7 @@ describe UserController do
   
   context "User logged in" do
     before(:each) { sign_in bob }
+
     describe "GET index" do
       it "should open user profile page" do
         get :index
@@ -30,6 +32,17 @@ describe UserController do
         post :update, :user => {:email => email, :password => "", :password_confirmation => ""}
         response.should redirect_to(profile_path)
         User.find(user_id).email.should == email
+      end
+      
+      it "should only update user profile of themself" do
+        user_id = bob.id
+        email = "a@example.com"
+        another_user_id = alice.id
+
+        post :update, :user => {:id => another_user_id, :email => email, :password => "", :password_confirmation => ""}
+        response.should redirect_to(profile_path)
+        User.find(user_id).email.should == email
+        User.find(another_user_id).email.should_not == email        
       end
     end
   end

@@ -1,5 +1,8 @@
 class User
   include Mongoid::Document
+
+  attr_accessible :email, :password
+
   # Include default devise modules. Others available are:
   # :registerable, :recoverable, :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :rememberable, :trackable, :validatable
